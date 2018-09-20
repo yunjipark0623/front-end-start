@@ -4,7 +4,7 @@ for(var isEnd = false; isEnd === false; ){
 
   num = prompt("더할 숫자를 입력하세요");
 
-  if(num === null){//취소(끝내기)버튼을 누를 때
+  if(num === null){//취소(끝내기)버튼을 누를 때, prompt()에 값이 없으면 결과 출력
     alert("합은 "+ sum +"입니다");
     isEnd = true;
     // break;
