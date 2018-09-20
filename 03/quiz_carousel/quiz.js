@@ -38,7 +38,7 @@ function previous() {
         page = 3; 
         startIndex = 6;
         endIndex = 7;
-        carousel(todayPhoto, startIndex, endIndex);
+        carousel(todayPhoto, startIndex, endIndex);//끝 페이지가 나와도 계속 반복하게 만들었습니다.
     }
     else {
         page--;
@@ -55,7 +55,7 @@ function next() {
         page = 1; 
         startIndex = 0;
         endIndex = 2;
-        carousel(todayPhoto, startIndex, endIndex);
+        carousel(todayPhoto, startIndex, endIndex);//끝 페이지가 나와도 계속 반복하게 만들었습니다.
     }
     else {
         page++;
