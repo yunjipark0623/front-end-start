@@ -10,14 +10,13 @@ var todayPhoto = [
 ];
 
 var wrap = document.getElementById('wrap');
-var previous = document.getElementById('previous');
-var next = document.getElementById('next');
+var previous_btn = document.getElementById('previous');
+var next_btn = document.getElementById('next');
 var pgnumber = document.getElementById('pgnumber');
 
 var page = 1;
 var startIndex = (page - 1) * 3;
 var endIndex = (page * 3) - 1;
-
 
 //들어가자마자 보이는 화면
 function carousel(arr, start, end) {
@@ -33,7 +32,8 @@ function carousel(arr, start, end) {
 }
 
 //이전 버튼을 눌렀을 때
-previous.addEventListener('click', function(){
+$(previous_btn).on('click', previous);
+function previous() {
     if (page === 1) {
         page = 3; 
         startIndex = 6;
@@ -46,10 +46,11 @@ previous.addEventListener('click', function(){
         var endIndex = (page * 3) - 1;
         carousel(todayPhoto, startIndex, endIndex);
     }
-});
+}
 
 //다음 버튼을 눌렀을 때 
-next.addEventListener('click', function() {
+$(next_btn).on('click', next);
+function next() {
     if (page === 3) {
         page = 1; 
         startIndex = 0;
@@ -61,8 +62,7 @@ next.addEventListener('click', function() {
         var startIndex = (page - 1) * 3;
         var endIndex = (page * 3) - 1;
         carousel(todayPhoto, startIndex, endIndex);
-    }
-});
+    } 
+}
 
 carousel(todayPhoto, startIndex, endIndex);
-
