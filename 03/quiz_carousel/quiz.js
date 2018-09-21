@@ -10,6 +10,7 @@ var todayPhoto = [
 ];
 
 var wrap = document.getElementById('wrap');
+// var information = document.getElementById('information');
 var previous_btn = document.getElementById('previous');
 var next_btn = document.getElementById('next');
 var pgnumber = document.getElementById('pgnumber');
@@ -21,14 +22,17 @@ var endIndex = (page * 3) - 1;
 //들어가자마자 보이는 화면
 function carousel(arr, start, end) {
     var str = '';
+    // var str2 = '';
     for (var i = start; i <= end; i++) {
         if(!arr[i]) {
             break;
         }
         str += '<img src="'+todayPhoto[i].img+'"> ';
+        // str2 += '<div id= "information">' +todayPhoto[i].title +'</div> ';
     }
     wrap.innerHTML = str;
-    pgnumber.innerHTML = page;
+    // information.innerHTML = str2;
+    pgnumber.innerHTML = page + '/3';
 }
 
 //이전 버튼을 눌렀을 때
