@@ -17,6 +17,13 @@ for (var i = 0; i < 4; i++) {
 
 wrap.innerHTML = str;
 
+var isWhite = false;
+for (var i = 0; i < 16; i++) {
+    if(isWhite) {
+        
+    }
+}
+
 //클릭했을 때 색깔 빨간색으로 변하기
 
 // var blocks = document.querySelectorAll('.wrap > div');
@@ -43,4 +50,4 @@ wrap.innerHTML = str;
     // } 
     // $(clickBlack).css('background', 'red');
     // $(clickWhite).css('background', 'red');
-// }
+// se
