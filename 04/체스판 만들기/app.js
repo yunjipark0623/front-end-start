@@ -1,53 +1,44 @@
 
 //체스판 만들기
 
-var wrap = document.querySelector('.wrap');
+var wrap = document.getElementById('wrap');
 var str = '';
-var black = '<div class="b"></div>';
-var white = '<div class="w"></div>';
+var black = '<div class="black"></div><div class="white"></div>';
+var white = '<div class="white"></div><div class="black"></div>';
 
-for (var i = 0; i < 4; i++) {
+for (var i = 1; i <= 4; i++) {
     if (i % 2 == 1) {
-        str += black + white + black + white;
+        str += black + black;
     }
-    else {
-        str += white + black + white + black;
+    else if (i % 2 == 0) {
+        str += white + white;
     }
 }
 
 wrap.innerHTML = str;
 
-var isWhite = false;
-for (var i = 0; i < 16; i++) {
-    if(isWhite) {
-        
+var tmpColor;
+var tmpValue;
+var divs = document.querySelectorAll('#wrap div');
+
+function chColor(event) {
+
+    //색 되돌리기 
+
+    if (tmpValue != null) {
+        $(tmpValue).css('backgroundColor', tmpColor);
     }
+
+    //색 칠하기
+    
+    tmpValue = event.target;
+    tmpColor = event.currentTarget.style.backgroundColor;
+    event.currentTarget.style.backgroundColor = 'red';
 }
 
-//클릭했을 때 색깔 빨간색으로 변하기
+for (var i = 0; i < divs.length; i++) {
+    $(divs[i]).on('click', chColor);
+}
 
-// var blocks = document.querySelectorAll('.wrap > div');
-// blocks.forEach(function(block) {
-    
-//     blocks.addEventListener('click', function(event) {
-//         Console.log(block);
-//         blocks.style.backgroundColor = 'yellow';
-//     })
-// })
 
-// var clickBlack = event.currentTarget;
-// var clickWhite = white.event.currentTarget;
 
-// $(clickBlack).on('click', clickBox);
-// $(clickWhite).on('click', clockBox);
-
-// function clickBox(clickBlack) {
-    // if (clickBlack) {
-    //     $(clickBlack).css('background', 'red');
-    // }
-    // else if (clickWhite) {
-    //     $(clickWhite).css('background', 'red');
-    // } 
-    // $(clickBlack).css('background', 'red');
-    // $(clickWhite).css('background', 'red');
-// se
