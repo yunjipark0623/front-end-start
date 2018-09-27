@@ -17,22 +17,22 @@ for (var i = 1; i <= 4; i++) {
 
 wrap.innerHTML = str;
 
-var tmpColor;
-var tmpValue;
+var clickColor;
+var clickValue;
 var divs = document.querySelectorAll('#wrap div');
 
 function chColor(event) {
 
     //색 되돌리기 
 
-    if (tmpValue != null) {
-        $(tmpValue).css('backgroundColor', tmpColor);
+    if (clickValue != null) {
+        $(clickValue).css('backgroundColor', clickColor);
     }
 
     //색 칠하기
-    
-    tmpValue = event.target;
-    tmpColor = event.currentTarget.style.backgroundColor;
+
+    clickValue = event.target;
+    clickColor = event.currentTarget.style.backgroundColor;
     event.currentTarget.style.backgroundColor = 'red';
 }
 
