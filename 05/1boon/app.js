@@ -31,8 +31,10 @@ function getUrlData(url, callback) {//정보 받아와서 패치 해주는 거
     });
 }
 
-button.addEventListener('click', function() {
+$(button).on('click', more);
+
+function more() {
     pgnumber++;
     var url = 'https://1boon.kakao.com/ch/enter.json?page=' + pgnumber + '&pagesize=10';
     getUrlData(url, print);
-});
+}
