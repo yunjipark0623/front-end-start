@@ -1,0 +1,43 @@
+<!-- jquery(오픈소스, js의 라이브러리)쓰는 이유 : 더 코딩하기 편하니깐 -->
+<!-- jquery의 라이브러리도 많이 생겨났는데 react, angular가 그 예이다. jquery를 실무에서 많이 쓰긴 하지만 요새 트렌드는 react, angular
+ 하지만 jquery를 알아놓으면 react, angular도 쉽게 배울 수 있다.  -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <style>
+        .red {
+            background-color: yellow
+        }
+
+        .wrap {
+            padding: 20;
+            background-color: #000;
+        }
+
+        .wrap div {
+            margin: 10px;
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery</h1>
+
+    <div id="debug"></div>
+    <div class="wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <input type="text" id="txt">
+    <button id="btn">검색</button>
+    
+    <script src="jquery-1.11.2.min.js"></script>
+    <script src="jquery.js"></script>
+</body>
+</html>

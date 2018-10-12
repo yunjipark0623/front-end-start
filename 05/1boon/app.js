@@ -4,7 +4,7 @@ console.log('1boon');
 var button = document.getElementById('button');
 var url = 'https://1boon.kakao.com/ch/enter.json?page=1&pagesize=10';
 var str = '';
-var pgnumber = 1;
+var pgnumber = 2;
 
 getUrlData(url, print);
 
@@ -33,8 +33,8 @@ function getUrlData(url, callback) {//정보 받아와서 패치 해주는 거
 
 $(button).on('click', more);
 
-function more() {
-    pgnumber++;
+function more() { 
     var url = 'https://1boon.kakao.com/ch/enter.json?page=' + pgnumber + '&pagesize=10';
     getUrlData(url, print);
+    pgnumber++;
 }
