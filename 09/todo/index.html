@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <title>Todos</title>
+  <link rel="stylesheet" href="todos.css">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Todo List</h1>
+
+    <!-- <form class="new-task" onsubmit="return false"> -->
+    <form class="new-task">
+      <input type="text" name="text" id="memo" placeholder="할일을 입력하세요">
+    </form>
+    <!-- form태그 때문에 할일을 적어도 엔터 치면 사라진다. form을 없애야 한다. -->
+  </header>
+  <ul id="list">
+    <!-- <li>
+      <button class="delete">×</button>
+      <input type="checkbox" class="toggle-checked">
+      <span class="text">JS공부하기</span>
+    </li> -->
+  </ul>
+
+</div>
+<script src="todos.js"></script>
+</body>
+</html>
