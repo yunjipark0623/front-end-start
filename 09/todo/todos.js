@@ -5,7 +5,7 @@
 //input입력받기
 
 var input = document.getElementById('memo');
-var list = document.getElementById('list');
+var list = document.querySelector('#list');
 var form = document.querySelector('.new-task');
 
 function addTodo(event) {
@@ -27,23 +27,34 @@ function addTodo(event) {
 form.addEventListener('submit', addTodo);//엔터만 치면 submit이 된다.
 
 function insertTodo(todo) {
-    var html = `<li>
-    <button class="delete">×</button>
-    <input type="checkbox" class="toggle-checked">
-    <span class="text">${todo}</span>
-    </li>`;
+    var html = `<li class="content">`+
+    `<button class="delete">×</button>`+
+    `<input type="checkbox" class="toggle-checked">`+
+    `<span class="text">${todo}</span>`+
+    `</li>`;
 
     list.innerHTML += html;
+
 }
 
-//x누르면 삭제하기
-list.querySelector('.delete').addEventListener('click', remove);
+list.addEventListener('click', remove);
 
-function remove(list) {
+function remove(e) {
+    var currentNode = e.target.parentElement;
+    console.log(currentNode.className);
 
-    console.log('click');
-    todo = event.target;
-    list.removeChild(todo.parentNode);
+    if (e.target.className == "delete" && currentNode.className == "content") {
+        currentNode.remove();
+    }
+
+    if (e.target.className == "toggle-checked" && e.target.checked == true) {
+        console.log("다한거");
+        currentNode.children[2].style.textDecoration="line-through";
+        currentNode.children[2].style.color ="gray";
+    } else {
+        console.log("다시 되돌리기");
+        currentNode.children[2].style.textDecoration="none";
+        currentNode.children[2].style.color ="black";
+    }
 }
 
-//체크박스 누르면 글에 줄가기
