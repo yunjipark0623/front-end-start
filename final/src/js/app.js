@@ -1,26 +1,26 @@
-// import saveAs from 'file-saver';
-
 console.log('my-note app.js');
 
-// var newnote = $('.btn_newnote');
 var note = document.getElementById('memo');
 var layer = document.querySelector('.layer');
-var window = document.querySelector('.btn-fullScreen')
+var fullScreen = document.querySelector('.btn-fullScreen')
 
 localStorage.getItem('memo');
 note.value = localStorage.getItem('memo');
 
 function reset() {
+    console.log('memo reset');
     note.value = '';
 }
 
 function store() {
+    console.log('memo store');
+    alert("노트를 저장 완료했습니다.");
     localStorage.setItem('memo', note.value);
 }
 
 function download() {
-    // var FileSaver = require('file-saver');
-    var blob = new Blob(["hello"], {type: "text/plain; charset = utf-8"});
+    console.log('memo download');
+    var blob = new Blob([note.value], {type: "text/plain; charset = utf-8"});
     saveAs(blob, "note.txt");
 }
 
@@ -38,63 +38,41 @@ var requestFullscreen = function (event) {
     }
 };
 
-// var exitFullscreen = function () {
-// 	if (document.exitFullscreen) {
-// 		document.exitFullscreen();
-// 	} else if (document.webkitExitFullscreen) {
-// 		document.webkitExitFullscreen();
-// 	} else if (document.mozCancelFullScreen) {
-// 		document.mozCancelFullScreen();
-// 	} else if (document.msExitFullscreen) {
-// 		document.msExitFullscreen();
-// 	} else {
-// 		console.log('Fullscreen API is not supported.');
-// 	}
-// };
+var exitFullscreen = function () {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.webkitExitFullscreen) {
+		document.webkitExitFullscreen();
+	} else if (document.mozCancelFullScreen) {
+		document.mozCancelFullScreen();
+	} else if (document.msExitFullscreen) {
+		document.msExitFullscreen();
+	} else {
+		console.log('Fullscreen API is not supported.');
+	}
+};
 
-window.addEventListener('click', function(e) {
-	e.preventDefault();
-	requestFullscreen(document.documentElement);
+var screenFlag = true;
+
+fullScreen.addEventListener('click', function(e) {
+    if(screenFlag == true) {
+        console.log('fullScreen On');
+	    e.preventDefault();
+        requestFullscreen(document.documentElement);
+        screenFlag = false;
+    }
+    if(screenFlag == false) {
+        console.log('fullScreen Off');
+	    e.preventDefault();
+        exitFullscreen(document.documentElement);
+        screenFlag = true;
+    } 
 });
-
-
-
-// fsExitDocButton.addEventListener('click', function(e) {
-// 	e.preventDefault();
-// 	exitFullscreen();
-// });
-
-
-// function fullScreen() {
-//     if (screenfull.enabled) {
-// 		screenfull.request();
-// 	} else {
-// 		screenfull.exit();
-// 	}
-
-    // if (!document.fullscreenElement &&    // alternative standard method
-    //     !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
-    //   if (document.documentElement.requestFullscreen) {
-    //     document.documentElement.requestFullscreen();
-    //   } else if (document.documentElement.mozRequestFullScreen) {
-    //     document.documentElement.mozRequestFullScreen();
-    //   } else if (document.documentElement.webkitRequestFullscreen) {
-    //     document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-    //   }
-    // } else {
-    //   if (document.cancelFullScreen) {
-    //     document.cancelFullScreen();
-    //   } else if (document.mozCancelFullScreen) {
-    //     document.mozCancelFullScreen();
-    //   } else if (document.webkitCancelFullScreen) {
-    //     document.webkitCancelFullScreen();
-    //   }
-    // }
-//   }
 
 var flag = true;
 
 function information() {
+    console.log('app info');
     if(flag == true) {
         layer.style.visibility = 'visible';
         flag = false;
